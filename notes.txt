@@ -1,0 +1,15 @@
+Arquivo para apenas anotações
+
+O springMvcApplication é o nosso main.No qual a aplicação será inicializada.Tirando situações em que configurações adicionais avançadas devem ser feitas, não se costuma mexer nesse arquivo.
+
+application.properties: esse é o arquivo de properties que mantém as configurações de conectores ao banco de dadoos e demais configureações globais de projeto.
+
+pom.xml: é o arquivo do Maven que cuida principalmente das dependencias.Se vc habilitou os módulos no Sprint initializr, essas dependencias serão listadas nesse arquivo automaticamente.
+
+Spring Data JPA é o que faz a integração entre o banco de dados e o projeto.E terminando com o Rest Controller( que externaliza um acesso RESTFull).
+
+H2 Database é um banco de dados muito prático para teste, ele sobe localmente, ou seja na sua máquina e possui interface web integrada ao spring Boot.
+
+ddl-auto ele cuida de atualizar o schema do banco de dados conforme as annotations das entities.
+
+Em um projeto Spring Boot, não é necessaŕio configurar um container Tomcat, pois já vem imbutido, isso ocorre por conta do Spring Web já ter imbutido um Tomcat.
