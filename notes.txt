@@ -13,3 +13,23 @@ H2 Database é um banco de dados muito prático para teste, ele sobe localmente,
 ddl-auto ele cuida de atualizar o schema do banco de dados conforme as annotations das entities.
 
 Em um projeto Spring Boot, não é necessaŕio configurar um container Tomcat, pois já vem imbutido, isso ocorre por conta do Spring Web já ter imbutido um Tomcat.
+
+Bean são componentes escritos na linguagem java.
+
+Para que serve algumas annotations:
+@NotBlank: não poder estar em branco
+@Size(max=50):No máximo 50 caracteres
+@Min:Não pode ser com valor negativo
+@Past:Data tem que ser no passado ou hoje.
+@AssetFalse: o valor deve ser falso
+@AssertTrue: o valor deve ser True
+@DecimalMax: valor deve ser menor ou igual
+@DecimalMin:valor deve ser maior ou igual
+@Future:a data deve estar no futuro
+@Past: a data deve estar no passado ou hj
+@Min: valor deve ser maior ou igual
+@Max : valor deve ser menor ou igual
+@NotNull: o valor não pode ser nulo
+@Size: A quantidade de elementos deve estar entre o min e max
+@Null o valor deve ser nulo
+@Pattern: o valor deve obedecer a expressão regular
