@@ -33,3 +33,12 @@ Para que serve algumas annotations:
 @Size: A quantidade de elementos deve estar entre o min e max
 @Null o valor deve ser nulo
 @Pattern: o valor deve obedecer a expressão regular
+
+Assinaturas referentes ao banco de dados
+Select:findAll() ou findById()
+INSERT ou UPDATE: save()
+DELETE: deleteById()
+Com essas referencias ao banco de dados, a criação do respositório se torna mais comuns(ou um DAO- Data Access Object) muito rápida.
+
+A annotation @Autowired cuida de isntanciar e insjetar o repositório na variável correta, com isso, não há necessidade de nos preocuparmos em criar uma factory ou um singleton para instanciar o repositório.O spring Data cuida disso.
+
