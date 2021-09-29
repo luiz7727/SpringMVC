@@ -40,5 +40,15 @@ INSERT ou UPDATE: save()
 DELETE: deleteById()
 Com essas referencias ao banco de dados, a criação do respositório se torna mais comuns(ou um DAO- Data Access Object) muito rápida.
 
-A annotation @Autowired cuida de isntanciar e insjetar o repositório na variável correta, com isso, não há necessidade de nos preocuparmos em criar uma factory ou um singleton para instanciar o repositório.O spring Data cuida disso.
+A annotation @Autowired cuida de instanciar e injetar o repositório na variável correta, com isso, não há necessidade de nos preocuparmos em criar uma factory ou um singleton para instanciar o repositório.O spring Data cuida disso.
 
+Como funciona um webservice RESTFull:
+-O REST(representational State Transfer) é um padrão sucesso do SOAP(Simple Object Access Protocol), utilizado ewm webservices modernos devido a uma série de vantagens arquiteturais,sendo algumas delas:
+    -O uso do JSON como formato de conteúdo.
+    -A utilização do conceito de verbos como heurística da ação que pode ser realizada em determinada rota.
+    -O conceito de webservice leve e simples, retirando a necessidade do uso WSDL(Webservice Description Language) como protocolo de descrição do serviço.
+
+Os webservices que suportam REST também costumam ser chamados de RESTFUl, contendo verbos(ações) possíveis, dentre os quais, quatrão que são muito utilizados:
+GET,POST,PUT,DELETE.Esses verbos são análogos as opereações do SQL.
+
+Resource, é uma classe responsável por externalizar as rotas de acesso a um webservice(ou API).
