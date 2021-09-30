@@ -28,7 +28,7 @@ public class ProdutoController {
     public String abrirFormulario(Produto produto, Model model)
     {
         model.addAttribute("categorias",categoriaRepository.findAll());
-        return "produto/form";
+        return "form";
     }
 
     @PostMapping("cadastrar")
@@ -36,7 +36,7 @@ public class ProdutoController {
     {
         if(result.hasErrors())
         {
-            return "produto/form";
+            return "templates/form";
         }
         redirectAttributes.addFlashAttribute("msg","Cadastrado!");
         repository.save(produto);

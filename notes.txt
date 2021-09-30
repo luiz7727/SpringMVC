@@ -80,4 +80,17 @@ Redirect:
     -Um realod de página não irá reprocessar a requisição original, visto que já está em uma página diferente.
     -Como consequencia do item anterior, variáveis e atributos da requisição original são perditos em requsições futuras.
 
-Para poder adicionar um redirect, basta colocar "redirect:" no início da String de retorno
+Para poder adicionar um redirect, basta colocar "redirect:" no início da String de retorno.
+
+Thymeleaft é basicamente o renderizador e mediador entre a camada web e o sistema.Existem várias funcionalidades embutidas nesse módulo do Spring, dentre delas, as principais são:
+
+-Cuidar da transferencia de parametros entre a página e o sistema.
+-Possibilitar o uso de lógica básica de tela para permitir a criação de páginas dinamicas
+-Criação de rotas dinamicas e de Beans.
+
+Famosas expressões:
+${..}-Variable Expression
+*{..}-Selection Expression
+#{..}-Message Expression
+@{..}-Link(URL)Expression
+~{..}Fragment Expression
