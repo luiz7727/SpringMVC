@@ -42,7 +42,7 @@ Para que serve algumas annotations:
 @PostMapping:habilita uma rota do verbo POST para inserir um elemento
 @RequestBody: faz o mapeamento dos dados que virão do request em um Bean.Nesse caso quando os dados são recebidos, eles são colocados dentro de um Bean para uso dentro do método.
 @PutMapping({id}): habilita uma rtoa do verbo PUT para atualizar um elemento, passando o ID dele via URL.
-@DeleteMapping({id}): habilita uma rota do verbo DELETE para remover um elemento, passando o seu ID via URL.
+@DeleteMapping({id}): habilita uma rota do verbo DELETE para remover um elemento, passando o seu ID via URL.=
 
 Assinaturas referentes ao banco de dados
 Select:findAll() ou findById()
@@ -63,3 +63,9 @@ GET,POST,PUT,DELETE.Esses verbos são análogos as opereações do SQL.
 
 Resource, é uma classe responsável por externalizar as rotas de acesso a um webservice(ou API).
 
+@Controller:informa ao SPring que esta classe possui um controller com mapeamento(rotas)
+
+@RequestMapping: o parametro dentro desta annotation informa que uma sub-rota com o caminho deve ser encaminhada para este controller
+@GetMapping/@PostMapping: o parametro dentro desta annotation informa que o endpoint (final da rota) com o respectivo verbo(GET e POST) devem ser encaminhados par ao método anotado.
+
+@PathVariable: é uma forma de avisar ao SPring MVC que uma determinada parte da URL virá como se fosse uma variável dentro do método
