@@ -66,4 +66,16 @@ public class Produto {
     public Boolean getNovo(){return this.novo=novo;}
 
     public void setNovo(Boolean novo){this.novo=novo;}
+
+    @ManyToOne
+    private Categoria categoria;
+
+    public Categoria getCategoria()
+    {
+        return this.categoria;
+    }
+    public void setCategoria(Categoria categoria)
+    {
+        this.categoria=categoria;
+    }
 }
