@@ -33,6 +33,16 @@ Para que serve algumas annotations:
 @Size: A quantidade de elementos deve estar entre o min e max
 @Null o valor deve ser nulo
 @Pattern: o valor deve obedecer a expressão regular
+@RestController:é a annotation que habilita a externalização dessa classe como um webservice RESTFul
+@RequestMapping: habilita uma rota com caminho específico(produto, nesse caso) para todoas as sub-rotas dentro da classe, ou seja, todas as sub-rotas deverão conter um /produto/ na URL.
+@GetMapping: habilita uma rota do verbo GET que nada mais é do que obter a listagem de todos os elementos de um repository.
+@GetMapping({id}): habilita uma rota do verbo GET que recebe um ID de elemento a ser buscado.
+@PathVariable:é uma forma de avisar ao SpringMVC que uma determinada parte da URL virá como se fosse uma variável dentro do método
+@ResponseStatus:contém o código HTTP de resposta, varia conforme o tipo de operação realizada.
+@PostMapping:habilita uma rota do verbo POST para inserir um elemento
+@RequestBody: faz o mapeamento dos dados que virão do request em um Bean.Nesse caso quando os dados são recebidos, eles são colocados dentro de um Bean para uso dentro do método.
+@PutMapping({id}): habilita uma rtoa do verbo PUT para atualizar um elemento, passando o ID dele via URL.
+@DeleteMapping({id}): habilita uma rota do verbo DELETE para remover um elemento, passando o seu ID via URL.
 
 Assinaturas referentes ao banco de dados
 Select:findAll() ou findById()
@@ -52,3 +62,4 @@ Os webservices que suportam REST também costumam ser chamados de RESTFUl, conte
 GET,POST,PUT,DELETE.Esses verbos são análogos as opereações do SQL.
 
 Resource, é uma classe responsável por externalizar as rotas de acesso a um webservice(ou API).
+
