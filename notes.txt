@@ -69,3 +69,15 @@ Resource, é uma classe responsável por externalizar as rotas de acesso a um we
 @GetMapping/@PostMapping: o parametro dentro desta annotation informa que o endpoint (final da rota) com o respectivo verbo(GET e POST) devem ser encaminhados par ao método anotado.
 
 @PathVariable: é uma forma de avisar ao SPring MVC que uma determinada parte da URL virá como se fosse uma variável dentro do método
+
+Forward:
+    -É processdo internamento pelo servidor
+    -Quando o processo é finalizado, a URL no browser do usuário não se altera.
+    -No caso de ocorrer um reload da página, o browser irá enviar novamente a requisiçãn original
+
+Redirect:
+    -É processado em duas etapas, quando o processamento é realizado, o browaser do usuário recebe uma segunda URL, por isso a URL no broswer muda
+    -Um realod de página não irá reprocessar a requisição original, visto que já está em uma página diferente.
+    -Como consequencia do item anterior, variáveis e atributos da requisição original são perditos em requsições futuras.
+
+Para poder adicionar um redirect, basta colocar "redirect:" no início da String de retorno
