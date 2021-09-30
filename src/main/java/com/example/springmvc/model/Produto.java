@@ -16,7 +16,10 @@ public class Produto {
 
     @NotNull
     private String nome;
+
     private double preco;
+
+    private boolean novo;
 
     private LocalDate dataFabricacao;
 
@@ -55,9 +58,12 @@ public class Produto {
         return dataFabricacao;
     }
 
-
     public void setDataFabricacao(LocalDate dataFabricacao)
     {
         this.dataFabricacao=dataFabricacao;
     }
+
+    public Boolean getNovo(){return this.novo=novo;}
+
+    public void setNovo(Boolean novo){this.novo=novo;}
 }

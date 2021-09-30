@@ -12,7 +12,7 @@ public interface ProdutoRepository extends JpaRepository<Produto,Integer> {
     //INSERT ou UPDATE: save()
     //DELETE: deleteById()
     List<Produto> findByNome(String prod);
-    List<Produto> findByNovo(Boolean prod);
+    List<Produto> findByNovo(Boolean novo);
     List<Produto> findByNomeAndNovo(String prod,boolean novo);
     List<Produto> findByPrecoGreaterThan(double preco);
 }

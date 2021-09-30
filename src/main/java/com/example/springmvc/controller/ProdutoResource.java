@@ -14,6 +14,14 @@ public class ProdutoResource {
 
     @Autowired
     private ProdutoRepository produtoRepository;
+    public ProdutoRepository getProdutoRepository()
+    {
+        return this.produtoRepository;
+    }
+    public void setProdutoRepository(ProdutoRepository produtoRepository)
+    {
+        this.produtoRepository=produtoRepository;
+    }
 
     @GetMapping
     public List<Produto> listar()
