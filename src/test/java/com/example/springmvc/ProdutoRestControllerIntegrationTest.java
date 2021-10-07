@@ -1,2 +1,3 @@
-package com.example.springmvc;public class ProdutoRestControllerIntegrationTest {
+package com.example.springmvc;
+public class ProdutoRestControllerIntegrationTest {
 }

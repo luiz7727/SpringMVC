@@ -1,6 +1,7 @@
 package com.example.springmvc.repository;
 
 import com.example.springmvc.model.Categoria;
+import com.example.springmvc.model.Produto;
 import com.sun.istack.NotNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 

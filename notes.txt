@@ -94,3 +94,10 @@ ${..}-Variable Expression
 #{..}-Message Expression
 @{..}-Link(URL)Expression
 ~{..}Fragment Expression
+
+@DataJpaTest para marcar que este é um tipo de teste de repositório.Um TestEntiryManager é injetado na classe para emular o comportamento de um conector de banco de dados e os métodos que vão conduzr o teste possuem a annotation @Test, na qual o código costuam ser separado em tres partes
+GIVE WHEN THEN
+
+GIVE - O QUE PRECISA SER PREPAREADO EM TORMS DE MASSA DE DADOS OU DE CONFIGURAÇÕES DE SISTEMA ANTES DE O TESTE SER CONDUZIDO
+WHEN - MOMENTO EM QUE UMA PARTE DO SISTEMA É EXECUTADA E O RETORNO DISSO É ARMAZENADO
+THEN - O RETORNO ARMAZENADO ANTERIORMENTE É COMPARADO COM O RESULTADO ESPERADO.

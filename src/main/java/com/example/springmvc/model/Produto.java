@@ -14,6 +14,12 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto")
     private int codigo;
 
+    public Produto(String nome, double preco)
+    {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
     @NotNull
     private String nome;
 
