@@ -220,3 +220,32 @@ value(obrigatório):aponta a estratégia para o preenchimento e recuperação de
     String:mostra que o valor do enum será literalmente convertido em uma String para ser armazenado no campo mapeado.Por exemplo, um tipo enu com os valores Azul e Vermelho teria os valores "Azul" e "Vermelho", respectivamente, como possibilidades para o campo.
     
     Ordinal:indica que a ordem do enum em sua classe será usada para determinar o valor que será armazenado no campo mapeado.Por exemplo, um tipo enum com os valores Azul, verde e vemerlho teria os valores 0,1 e 2 respectivamente, como possibilidade para o campo.
+
+as anotações em cima dos atributos, é basicamte variáveis(atributos) recebendo um valor.Como se fosse uma variável normal em java recebendo uma string ou int e etc.
+
+
+@CreationTimestamp(hibernate)
+Nome completo:org.hiberante.annotations.CreationTimestamp
+
+Objetivo:mostra que o atributo receberá automaticamente a data e hora do sistema no momento da criação de um registro.
+
+Onde deve ser incluída:sobre um atributo.Opcional.Pode ser usada em atributos do tipoCalendar ou date
+
+Atributos:Não possui.
+
+@UpdateTimestampo(Hibernate)
+Nome completo: org.hiberante.annotations.UpdateTimestamp
+
+objetivo:indica que o atributo receberá automaticamente a data e hora do sistema no momento da atualização de um registro.
+Onde deve ser incluída:sobre um atributo.Opcional.Só pode ser usada em atributos do tipo Calendar ou Date.
+
+Atributos:não pssui.
+
+@Formula(Hibernate)
+
+Nome completo:org.hiberante.annotations.Formula
+
+Objetivo:usada para indicar que um determinado atributo não está mapeado para um campo da tabela,mas que seu valor, sempre que for solicitado, será uma sub select ou um função de agregação.Muito útil para os chamados campos calculados.
+Onde deve ser incluída:sobre um atributo.Opcional.
+Atributos:
+    value(obrigatório):atributo no qual apontamos a intrução SQL que será usada para determinar o valor do atributo da calsse anotada com o @Formula.Para evitar efeitos colaterais, é recomendado que o select dentro da instrução seja entre parenteses.Se, em vez de um sub selec, for apenas usada uma função de agregação(avg,sum,count,min,max e etc), os parenteses não serão necessários
