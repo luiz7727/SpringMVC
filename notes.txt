@@ -185,3 +185,38 @@ Atributos:
     -schema(opcional):nome do esquema do banco onde está a tabela.Se omitido, o JPA irá considerar que está no mesmo que a tabela
     -catalog(opcional):nome do catálogo do bancod onde está a tabela.Se omitido, o JPA irá considerar que está no mesmo que a tabela.
     
+@Column(JPA)
+Nome completo:javax.persistence.Column
+OBjetivo: mapeia uma coluna da tabela junto a um atributo na classe
+Onde deve ser incluída: sobre um atributo.Opcional.
+
+Atributos:
+    -name(opcional):indica qual o nome do campo na tabela.Se omitido, o JPA entenderá que o campo possui exatamente o mesmo nome do atributo.O interessante desse atributo é que um campo pode ter um nome na tabela diferente de seu atributo mapeado na classe.
+    -length(opcional):aponta o tamanho do campo na tabela.Por exemplo, para um campo varchar, esse campo mostraria a quantidade dos caracteres que comporta.
+    -precision(opcional):indica a precisão do campo.Esse atributo se aplica a campos numéricos.
+    -scale(opcional):mostra a escala do campo.Esse atributo se aplica a campos numéricos.
+    -nullable(opcional): aponta se o campo é obrigatório(false) ou se é possível criar/atualizar um valor de um registro, deixando-o em vazio(true).
+    -unique(opcional):indica se o campodeve possuir valor único na tabela, ou seja, se é um campo com restrição unique na tabela.
+    -insertabel(opcional): mostra se o campo pode ter o valor no momento da criação de um registro.Se esse atributo for false, um eventual valor do atributo da classe será ignorado no momento da criação de um registro.
+    -updatable(opcional): aponta se o campo pode ter valor no momento da atualização de um registro.Se esse atributo for false, um eventual valor do atributo da classe será ignorado no momento da atualização de um registro.
+    
+@Temporal(JPA)
+Nome completo:javax.persistence.Temporal
+OBjetico:usado para indicar o tipo de dado temporal que será guardado no campo do atributo mapeado.
+Onde deve ser incluída:sobre um atributo.Opcional.Pode ser usada em atributos dos tipos Calendar ou Date
+Atributos:
+value(obrigatŕio):indica o tipo de dado temporal do campo.Os tipos de estratégias são os valores da enum javax.persistence.TemporalType:
+    TIMESTAMP:mostra que o campo irá receber a data e a hora.Muito usado em campos dos tipos datetime e timestamp.
+    DATE: aponta que o campo receberá somente a data.Muito utilizado em campos do tipo date.Quando recuperado do banco, o atributo do tipo Calendar ou Date estará sempre com a hora "zerada" (ex: "00:00:00")
+    TIME:indica que o campo receberá somente a hora.Muito usado em campos do tipo time.Quando recuperado do banco, o atributo do tipo Calendar ou Date estará com o dia em 1 de janeiro de 1970,sendo relevante apenas a hora, minuto, segundo e milissegundo.
+
+@Enumerated(JPA)
+Nome completo:javax.persistence.Enumerated
+Objetivo:usado em campos mapeados em atributos de tipos de enums, indica se no banco será armazenado o valor literal do enum(valor alfanumérico) ou sua ordem na classe enum.
+Onde deve ser incluída: sobre um atributo.Opcional.Pode ser usada em atributos de tipos de enums.
+
+Atributos:
+value(obrigatório):aponta a estratégia para o preenchimento e recuperação de valor do atributo.Os tipos de estratégias são os valores da enum javax.persistence.EnumType.
+    String:mostra que o valor do enum será literalmente convertido em uma String para ser armazenado no campo mapeado.Por exemplo, um tipo enu com os valores Azul e Vermelho teria os valores "Azul" e "Vermelho", respectivamente, como possibilidades para o campo.
+    
+    Ordinal:indica que a ordem do enum em sua classe será usada para determinar o valor que será armazenado no campo mapeado.Por exemplo, um tipo enum com os valores Azul, verde e vemerlho teria os valores 0,1 e 2 respectivamente, como possibilidade para o campo.
