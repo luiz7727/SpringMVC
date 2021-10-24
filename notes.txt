@@ -101,3 +101,87 @@ GIVE WHEN THEN
 GIVE - O QUE PRECISA SER PREPAREADO EM TORMS DE MASSA DE DADOS OU DE CONFIGURAÇÕES DE SISTEMA ANTES DE O TESTE SER CONDUZIDO
 WHEN - MOMENTO EM QUE UMA PARTE DO SISTEMA É EXECUTADA E O RETORNO DISSO É ARMAZENADO
 THEN - O RETORNO ARMAZENADO ANTERIORMENTE É COMPARADO COM O RESULTADO ESPERADO.
+
+
+@Enitty(JPA)
+Nome completo: javax.persistence.Entity
+Objetivo: indicar que a classe sera usada para mapear uma tabela do banco de dados
+Onde deve ser incluida: sobre a classe somente.Obrigatória
+
+@Table(JPA)
+Nome completo: javax.persistence.Table
+Objetivo: configura as informações da tabela que está sendo "espelhada" na classe.Se essas anotações forem omitidas, o JPA vai procurar uma tabela com o EXATO nome da classe no banco.O interessante desse atributo é que a tabela pode ter um nome diferente de sua classe mapeada.Isso ajuda a resolver a questão de convenções dos nomes.
+
+Onde deve ser incluída:sobre a classe somente.Opcional.
+
+Atributos:
+name(obrigatório):nome da tabela no banco de dados
+catalog(opcional): catálogo da tabela no banco de dados
+schema(opcional): esquema da tabela no banco de dados
+indexes(opcional): vetor de objetos que mapeiam índices no banco de dados
+uniqueConstraints(opcional):vetor de objeto que mapeiam as restrições de valor único no banco de dados
+
+Por exemplo:indicou o nome da tabela no banco de dados como sendo "tbl_estabelecimento"
+
+@Table(name="tbl_estabelecimento")
+public class Estacionamento
+
+@ID(JPA)
+Nome completo: javax.persistence.Id
+
+Objetivo:Indica qual atributo da classe será mapeado para a Chave primária da tabela
+Onde deve ser incluída:sobre um atributo.Obrigatório em pelo menos um atributo
+Atributos:não possui
+
+Exemplo:
+
+@Id
+public String idUser;
+
+@GeneratedValue(JPA)
+
+nome completo:javax.persistence.GeneratedValue
+Objetivo:configura a forma de preenchimento automático do valor do campo da chave primária.Se não for usada, o programa deve configurar "manualmente" o valor do atributo da Chave Primária
+
+Onde deve ser incluída:Sobre um atributo.Opcional
+
+Atributos:
+Strategy(opcional):indica a estratégia para a geração do valor do atributo.Os tipos de estratégias são os valores da enum javax.persistence.GenerationType:
+    -AUTO:aponta que a estratégia-padrão de preenchimento automático do banco de dados configurado será utilizada.Em alguns bancos, a chave Primária "cresce sozinha", ou seja possui um valor com autoincremento.Para outros, o JPA pegará o maior valor atualmente na tabela e usará mais 1.Se o atributo strategy for omitido, esta estratégia é a que será usada.
+
+    -IDENITTY:em alguns bancos, a chave Primária "cresce sozinha", ou seja, ela tem um autoincremento.O idenitty aponta que o JPA irá gerar uma instrução de insert apropriada para o banco de dados configurado para que use esse recurso no mento da criação de um novo registro.
+
+    -Sequence:alguns bancos de dados não possuem o recurso de autoincremento de valor.Assim,uma forma de fazer o valor ser incrementado de froma consistente é consultar o novo valor de uma sequence no banco de dados.Essa opção indica e configura o uso desse recuso para a obtenção do valor que será usado na Chave primária.
+
+    -Table:opção muito parecida com a SEQUENCE.A diferença é que com ela se indica uma tabela e não uma sequence de onde se pega o novo valor que será usado na Chave Primária
+
+generator(opcional,porém, obrigatório para SEQUENCE).Caso tenha usado o sequence no strategy, nesse atributo deve indicar o mesmo valor que usou no name da anotação @SequenceGenerator.Caso tenha usado o table no strategy, nesse atributo deve apontar o mesmo valor que usou no name da anotação @TableGenerator
+
+Exemplo:
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Integer Id;
+
+@SequenceGenerator(JPA)
+Nome completo: javax.persistence.SequenceGenerator
+Objetivo: configura o acesso a uma sequence do banco de dados para ser usada na Chave primária
+Onde deve ser incluída:sobre um atributo.Opcional.OBrigatória apenas se for usada SEQUENCE no atributo strategyType na anotação @GeneratedValue.
+
+Atributos:
+    -name(obrigatório):indica o nome da sequence na clase mapeada.O valor desse atributo é que deve ser usado no atributo generator da anotação @GeneratedValue
+    -sequenceName(obrigatório): aponta o nome da sequence no banco de dados
+    -schema(opcional): nome do esquema do banco onde está a sequence.Se omitido, o JPA irá considerar que está no mesmo que a tabela
+    -catalog(opcional): nome do catálogo do banco onde está a sequence.Se omitido,o JPA irá considerar que está no mesmo que a tabela.
+
+@TableGenerator(JPA)
+Nome completo:javax.persistence.TableGenerator
+objetivo:Configura o acesso a uma tabela do banco para ser usada na Chave primária.
+Onde deve ser incluída:sobre um atributo.Opcional.Obrigatória apenas se for usado TABLE no atributo strategyType na anotação @GeneratedValue.
+
+Atributos:
+    -name(obrigatório):indica o nome da tabela na classe mapeada.O valor desse atributo é que deve ser usado no atributo generator da anotação @GeneratedValue.
+    -table(obrigatório): aponta o nome da tabela no banco de dados
+    -valueColumnName(obrigatório):indica o nome do campo da tabela no banco de dados
+    -schema(opcional):nome do esquema do banco onde está a tabela.Se omitido, o JPA irá considerar que está no mesmo que a tabela
+    -catalog(opcional):nome do catálogo do bancod onde está a tabela.Se omitido, o JPA irá considerar que está no mesmo que a tabela.
+    
