@@ -249,3 +249,20 @@ Objetivo:usada para indicar que um determinado atributo não está mapeado para 
 Onde deve ser incluída:sobre um atributo.Opcional.
 Atributos:
     value(obrigatório):atributo no qual apontamos a intrução SQL que será usada para determinar o valor do atributo da calsse anotada com o @Formula.Para evitar efeitos colaterais, é recomendado que o select dentro da instrução seja entre parenteses.Se, em vez de um sub selec, for apenas usada uma função de agregação(avg,sum,count,min,max e etc), os parenteses não serão necessários
+    
+    
+@Repository vs @Service
+
+@Component
+
+
+@Controller
+Estamos informando ao spring que essa classe vai existir metodos, que vao manipular as telas do sistema.
+
+@Repository
+Acesso ao banco de dados
+
+@Service
+Toda logica do sistema, todas as regras de negocio, toda validacao, metodo que recupera senha
+
+https://www.tutorialspoint.com/spring_boot/spring_boot_service_components.htm
